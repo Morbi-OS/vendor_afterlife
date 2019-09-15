@@ -173,6 +173,10 @@ PRODUCT_PACKAGES += \
 # Bootanimation
 $(call inherit-product, vendor/afterlife/config/bootanimation.mk)
 
+<<<<<<< HEAD
 include vendor/afterlife/config/version.mk
+
+# Fonts
+include vendor/afterlife/config/fonts.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
