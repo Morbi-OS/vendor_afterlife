@@ -188,6 +188,9 @@ $(call inherit-product, vendor/afterlife/config/bootanimation.mk)
 <<<<<<< HEAD
 include vendor/afterlife/config/version.mk
 
+# Certification
+$(call inherit-product-if-exists, vendor/certification/config.mk)
+
 # Fonts
 include vendor/afterlife/config/fonts.mk
 
