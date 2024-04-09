@@ -63,7 +63,8 @@ SOONG_CONFIG_afterlifeGlobalVars += \
     camera_needs_client_info \
     uses_nothing_camera \
     uses_miui_camera \
-    uses_oppo_camera
+    uses_oppo_camera \
+    include_miui_camera
 
 SOONG_CONFIG_NAMESPACES += afterlifeNvidiaVars
 SOONG_CONFIG_afterlifeNvidiaVars += \
@@ -105,6 +106,7 @@ SOONG_CONFIG_afterlifeGlobalVars_uses_nothing_camera := $(TARGET_USES_NOTHING_CA
 SOONG_CONFIG_afterlifeGlobalVars_camera_needs_client_info_lib_oplus := $(TARGET_CAMERA_NEEDS_CLIENT_INFO_LIB_OPLUS)
 SOONG_CONFIG_afterlifeGlobalVars_uses_miui_camera := $(TARGET_USES_MIUI_CAMERA)
 SOONG_CONFIG_afterlifeGlobalVars_uses_oppo_camera := $(TARGET_USES_OPPO_CAMERA)
+SOONG_CONFIG_afterlifeGlobalVars_include_miui_camera := $(TARGET_INCLUDES_MIUI_CAMERA)
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0
