@@ -18,5 +18,6 @@ aconfig_value_set {
 
     values: [
         "aconfig-values-ap2a-com.android.settingslib.media.flags-all",
+        "aconfig-values-ap2a-com.android.systemui.flags-all",
     ],
 }
