@@ -224,7 +224,11 @@ PRODUCT_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     DocumentsUIOverlay \
     NetworkStackOverlay \
-    PermissionControllerOverlay
+    PermissionControllerOverlay \
+    DeviceConfigOverlay
+    
+PRODUCT_COPY_FILES += \
+    vendor/afterlife/overlay/config-system_ext.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/overlay/config/config.xml
 
 # Translations
 CUSTOM_LOCALES += \
