@@ -309,6 +309,9 @@
         <item>runtime_native/usap_pool_size_min=1</item>
         <item>runtime_native/usap_refill_threshold=5</item>
 
+        <!-- Flag indicating which package name can access DeviceConfig table -->
+        <string name="config_deviceConfiguratorPackageName" translatable="false">org.lineageos.settingsconfig</string>
+
         <!--
             Device Personalization Services (AiAi)
         -->
