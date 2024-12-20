@@ -90,6 +90,18 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
+# Blur
+ifeq ($(TARGET_SUPPORTS_BLUR), true)
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    ro.sf.blurs_are_expensive=1 \
+    ro.surface_flinger.supports_background_blur=1 \
+    persist.sys.sf.disable_blurs=1
+
+else
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.launcher.blur.appLaunch=0
+endif
+
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images \
@@ -227,7 +239,6 @@ PRODUCT_PACKAGES += \
 # Bootanimation
 $(call inherit-product, vendor/afterlife/config/bootanimation.mk)
 
-<<<<<<< HEAD
 include vendor/afterlife/config/version.mk
 
 # Certification
