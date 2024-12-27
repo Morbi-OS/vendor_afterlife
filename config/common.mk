@@ -244,6 +244,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/afterlife/overlay/common
 
 PRODUCT_PACKAGES += \
+    AndroidBlackThemeOverlay \
     CustomFontPixelLauncherOverlay \
     DocumentsUIOverlay \
     NavigationBarNoHintOverlay \
