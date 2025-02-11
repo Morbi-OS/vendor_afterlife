@@ -256,7 +256,8 @@ PRODUCT_PACKAGES += \
     DocumentsUIOverlay \
     NavigationBarNoHintOverlay \
     NetworkStackOverlay \
-    ThemedIconsOverlay
+    ThemedIconsOverlay \
+    PermissionControllerOverlay
 
 # Bootanimation
 $(call inherit-product, vendor/afterlife/config/bootanimation.mk)
