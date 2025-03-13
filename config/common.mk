@@ -236,4 +236,5 @@ $(call inherit-product-if-exists, vendor/certification/config.mk)
 # Fonts
 include vendor/afterlife/config/fonts.mk
 
--include $(WORKSPACE)/build_env/image-auto-bits.mk
+# ThemeOverlays
+ include packages/overlays/Themes/themes.mk
