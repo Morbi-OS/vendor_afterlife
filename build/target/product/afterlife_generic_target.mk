@@ -1,6 +1,4 @@
-# Copyright (C) 2015 The CyanogenMod Project
-#           (C) 2017-2018 The LineageOS Project
-#			(C) 2023-2025 AfterlifeOS
+# Copyright (C) 2023-2025 The AfterlifeOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,5 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Rules for QCOM targets
-include $(TOPDIR)vendor/afterlife/build/core/qcom_target.mk
+$(call inherit-product, vendor/afterlife/config/common_full_phone.mk)
+
+# Allow building otatools
+TARGET_FORCE_OTA_PACKAGE := true
