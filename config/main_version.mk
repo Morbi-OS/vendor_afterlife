@@ -1,5 +1,5 @@
 # AfterLife System Version
-ADDITIONAL_SYSTEM_PROPERTIES += \
+PRODUCT_SYSTEM_PROPERTIES += \
     ro.afterlife.version=$(AFTERLIFE_VERSION) \
     ro.afterlife.releasetype=$(AFTERLIFE_BUILD_TYPE) \
     ro.afterlife.releasevarient=$(AFTERLIFE_ZIP_TYPE) \

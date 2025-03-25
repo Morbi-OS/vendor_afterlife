@@ -177,6 +177,11 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     GameSpace \
     AfterHomeQuickStep
 
+# Themes
+PRODUCT_PACKAGES += \
+    ThemePicker \
+    ThemesStub
+
 # Gapps
  ifeq ($(AFTERLIFE_GAPPS),true)
  $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
@@ -270,25 +275,23 @@ PRODUCT_PACKAGES += \
     PermissionControllerOverlay
 
 # Audio
- include vendor/afterlife/config/afterlife_audio.mk
+include vendor/afterlife/config/afterlife_audio.mk
  
 # Bootanimation
- include vendor/afterlife/config/afterlife_bootanimation.mk
+include vendor/afterlife/config/afterlife_bootanimation.mk
 
 # Fonts
 include vendor/afterlife/config/fonts.mk
 
-# Packages
- include vendor/afterlife/config/afterlife_packages.mk
 
 # Signed
- include vendor/afterlife/config/afterlife_signed.mk
+include vendor/afterlife/config/afterlife_signed.mk
 
 # Overlays Themes
- include packages/overlays/Themes/themes.mk
+include packages/overlays/Themes/themes.mk
  
 # Versioning
- include vendor/afterlife/config/version.mk
+include vendor/afterlife/config/version.mk
 
  -include vendor/afterlife-priv/keys/keys.mk
 

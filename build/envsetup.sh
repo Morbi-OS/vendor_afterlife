@@ -37,47 +37,49 @@ function goafterlife()
     fi
 
     if [ $# -eq 0 ]; then
-    else
-        while [[ $# -gt 0 ]]; do
-            case "${1}" in
-                --dirty)
-                    clean_build="false"
-                    shift
-                    ;;
-                user)
-                    variant="user"
-                    shift
-                    ;;
-                userdebug)
-                    variant="userdebug"
-                    shift
-                    ;;
-                eng)
-                    variant="eng"
-                    shift
-                    ;;
-                ap*)
-                    release_target="${1}"
-                    shift
-                    ;;
-                *)
-                    target="${1}"
-                    shift
-                    ;;
-            esac
-        done
-        
-        if [ -z "$target" ]; then
-            echo "Error: Device codename is required!"
-            return 1
-        fi
-
-        if [ -z "$variant" ]; then
-            variant="userdebug"
-        fi
-
-        lunch afterlife_${target}-${release_target}-${variant}
+        echo "Error: Device codename is required!"
+        return 1
     fi
+
+    while [[ $# -gt 0 ]]; do
+        case "${1}" in
+            --dirty)
+                clean_build="false"
+                shift
+                ;;
+            user)
+                variant="user"
+                shift
+                ;;
+            userdebug)
+                variant="userdebug"
+                shift
+                ;;
+            eng)
+                variant="eng"
+                shift
+                ;;
+            ap*)
+                release_target="${1}"
+                shift
+                ;;
+            *)
+                target="${1}"
+                shift
+                ;;
+        esac
+    done
+
+    if [ -z "$target" ]; then
+        echo "Error: Device codename is required!"
+        return 1
+    fi
+
+    if [ -z "$variant" ]; then
+        variant="userdebug"
+    fi
+
+    lunch afterlife_${target}-${release_target}-${variant}
 
     rm -rf out/target/product/$target/AfterLife*zip*
 
@@ -88,6 +90,7 @@ function goafterlife()
 
     return $?
 }
+
 
 function breakfast()
 {
