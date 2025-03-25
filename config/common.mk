@@ -55,7 +55,7 @@ PRODUCT_COPY_FILES += \
 # Some permissions
 PRODUCT_COPY_FILES += \
     vendor/afterlife/config/permissions/privapp-permissions-lineagehw.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-lineagehw.xml \
-    vendor/afterlife/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
+    vendor/afterlife/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml \
     vendor/afterlife/config/permissions/org.lineageos.health.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/org.lineageos.health.xml
 
 # Enable Android Beam on all targets
@@ -172,12 +172,13 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/%/libfuse-lite.so \
     system/%/libntfs-3g.so
 
-# Gamespace
+# some packages
  PRODUCT_PACKAGES += \
-     GameSpace
+    GameSpace \
+    AfterHomeQuickStep
 
 # Gapps
- ifeq ($(WITH_GAPPS),true)
+ ifeq ($(AFTERLIFE_GAPPS),true)
  $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
  endif
 
@@ -248,7 +249,7 @@ PRODUCT_COPY_FILES += \
 
 # SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Launcher3QuickStep \
+    AfterHomeQuickStep \
     NexusLauncherRelease \
     Settings \
     SystemUI
@@ -268,19 +269,30 @@ PRODUCT_PACKAGES += \
     ThemedIconsOverlay \
     PermissionControllerOverlay
 
+# Audio
+ include vendor/afterlife/config/afterlife_audio.mk
+ 
 # Bootanimation
-$(call inherit-product, vendor/afterlife/config/bootanimation.mk)
-
-include vendor/afterlife/config/version.mk
-
-# Certification
-$(call inherit-product-if-exists, vendor/certification/config.mk)
+ include vendor/afterlife/config/afterlife_bootanimation.mk
 
 # Fonts
 include vendor/afterlife/config/fonts.mk
 
-# Signing
-include vendor/afterlife/config/signed.mk
+# Packages
+ include vendor/afterlife/config/afterlife_packages.mk
 
-# ThemeOverlays
+# Signed
+ include vendor/afterlife/config/afterlife_signed.mk
+
+# Overlays Themes
  include packages/overlays/Themes/themes.mk
+ 
+# Versioning
+ include vendor/afterlife/config/version.mk
+
+ -include vendor/afterlife-priv/keys/keys.mk
+
+# Certification
+$(call inherit-product-if-exists, vendor/certification/config.mk)
+
+

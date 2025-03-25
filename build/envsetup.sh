@@ -27,45 +27,56 @@ function goafterlife()
     target=$1
     local variant="userdebug"
     local clean_build="true"
+    local release_target="ap4a"  # Default 
+
+    # Path ke file config
+    config_file="vendor/afterlife/release/build_config/ap4a.textproto"
+
+    if [ -f "$config_file" ]; then
+        release_target=$(grep -oP '(?<=value: ").*(?=")' "$config_file" | sed 's/aconfig_value_set-afterlife-//')
+    fi
 
     if [ $# -eq 0 ]; then
-        # No arguments, so let's have the full menu
-        lunch
     else
-        if [[ "$target" =~ -(user|userdebug|eng)$ ]]; then
-            # A buildtype was specified, assume a full device name
-            lunch $target
-        else
-            while [[ $# -gt 0 ]]; do
-                case "${1}" in
-                    --dirty)
-                        clean_build="false"
-                        shift
-                        ;;
-                    user)
-                        variant="user"
-                        shift
-                        ;;
-                    userdebug)
-                        variant="userdebug"
-                        shift
-                        ;;
-                    eng)
-                        variant="eng"
-                        shift
-                        ;;
-                    *)
-                        shift
-                        ;;
-                esac
-            done
-            # This is probably just the AfterLife model name
-            if [ -z "$variant" ]; then
-                variant="userdebug"
-            fi
-
-            lunch afterlife_$target-$variant
+        while [[ $# -gt 0 ]]; do
+            case "${1}" in
+                --dirty)
+                    clean_build="false"
+                    shift
+                    ;;
+                user)
+                    variant="user"
+                    shift
+                    ;;
+                userdebug)
+                    variant="userdebug"
+                    shift
+                    ;;
+                eng)
+                    variant="eng"
+                    shift
+                    ;;
+                ap*)
+                    release_target="${1}"
+                    shift
+                    ;;
+                *)
+                    target="${1}"
+                    shift
+                    ;;
+            esac
+        done
+        
+        if [ -z "$target" ]; then
+            echo "Error: Device codename is required!"
+            return 1
         fi
+
+        if [ -z "$variant" ]; then
+            variant="userdebug"
+        fi
+
+        lunch afterlife_${target}-${release_target}-${variant}
     fi
 
     rm -rf out/target/product/$target/AfterLife*zip*

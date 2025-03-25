@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include $(TOPDIR)vendor/afterlife/config/main_version.mk
+
 PRODUCT_VERSION_MAJOR = 8
 PRODUCT_VERSION_MINOR = 0
 
@@ -24,7 +26,7 @@ endif
 ifndef AFTERLIFE_GAPPS
     AFTERLIFE_ZIP_TYPE := Vanilla
 else
-    $(call inherit-product-if-exists, vendor/gms/gms.mk)
+    $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
 
     ifdef GAPPS_CORE
         AFTERLIFE_ZIP_TYPE := CoreGApps
