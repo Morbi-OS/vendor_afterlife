@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2018-2021 The LineageOS Project
+# Copyright (C) 2021-2025 The AfterlifeOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,49 +16,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_cf_car_arm64.mk \
-    $(LOCAL_DIR)/lineage_cf_car_x86_64.mk \
-    $(LOCAL_DIR)/lineage_cf_phone_arm64.mk \
-    $(LOCAL_DIR)/lineage_cf_phone_x86_64.mk \
-    $(LOCAL_DIR)/lineage_cf_tv_x86_64.mk \
     $(LOCAL_DIR)/lineage_gsi_arm.mk \
     $(LOCAL_DIR)/lineage_gsi_arm64.mk \
-    $(LOCAL_DIR)/lineage_gsi_x86.mk \
-    $(LOCAL_DIR)/lineage_gsi_x86_64.mk \
-    $(LOCAL_DIR)/lineage_gsi_car_arm64.mk \
-    $(LOCAL_DIR)/lineage_gsi_car_x86_64.mk \
-    $(LOCAL_DIR)/lineage_gsi_tv_arm.mk \
-    $(LOCAL_DIR)/lineage_gsi_tv_arm64.mk \
-    $(LOCAL_DIR)/lineage_gsi_tv_x86.mk \
-    $(LOCAL_DIR)/lineage_gsi_tv_x86_64.mk \
-    $(LOCAL_DIR)/lineage_sdk_car_arm64.mk \
-    $(LOCAL_DIR)/lineage_sdk_car_x86_64.mk \
-    $(LOCAL_DIR)/lineage_sdk_phone_arm64.mk \
-    $(LOCAL_DIR)/lineage_sdk_phone_x86_64.mk \
-    $(LOCAL_DIR)/lineage_sdk_tv_arm.mk \
-    $(LOCAL_DIR)/lineage_sdk_tv_x86.mk \
-    $(LOCAL_DIR)/lineage_sdk_tv_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_cf_car_arm64-userdebug \
-    lineage_cf_car_x86_64-userdebug \
-    lineage_cf_phone_arm64-userdebug \
-    lineage_cf_phone_x86_64-userdebug \
-    lineage_cf_tv_x86_64-userdebug \
     lineage_gsi_arm-userdebug \
     lineage_gsi_arm64-userdebug \
-    lineage_gsi_x86-userdebug \
-    lineage_gsi_x86_64-userdebug \
-    lineage_gsi_car_arm64-userdebug \
-    lineage_gsi_car_x86_64-userdebug \
-    lineage_gsi_tv_arm-userdebug \
-    lineage_gsi_tv_arm64-userdebug \
-    lineage_gsi_tv_x86-userdebug \
-    lineage_gsi_tv_x86_64-userdebug \
-    lineage_sdk_car_arm64-userdebug \
-    lineage_sdk_car_x86_64-userdebug \
-    lineage_sdk_phone_arm64-userdebug \
-    lineage_sdk_phone_x86_64-userdebug \
-    lineage_sdk_tv_arm-userdebug \
-    lineage_sdk_tv_x86-userdebug \
-    lineage_sdk_tv_x86_64-userdebug

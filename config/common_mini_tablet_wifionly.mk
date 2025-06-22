@@ -1,7 +1,6 @@
-# Inherit mobile mini common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_mobile_mini.mk)
+# Inherit mini common Afterlife stuff
+$(call inherit-product, vendor/afterlife/config/common_mini_tablet.mk)
 
-# Inherit tablet common Lineage stuff
-$(call inherit-product, vendor/lineage/config/tablet.mk)
-
-$(call inherit-product, vendor/lineage/config/wifionly.mk)
+# Required packages
+PRODUCT_PACKAGES += \
+    LatinIME
