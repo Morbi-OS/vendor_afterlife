@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2018-2021 The LineageOS Project
+# Copyright (C) 2018-2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,10 +11,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/afterlife_gsi_arm64.mk
+$(call inherit-product, device/generic/common/gsi_arm64.mk)
 
-COMMON_LUNCH_CHOICES := \
-    afterlife_gsi_arm64-userdebug
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+include vendor/afterlife/build/target/product/afterlife_generic_target.mk
+
+PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
+
+TARGET_NO_KERNEL_OVERRIDE := true
+
+PRODUCT_NAME := afterlife_gsi_arm64
+PRODUCT_DEVICE := generic_arm64
+
+PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS :=
