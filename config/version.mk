@@ -9,7 +9,6 @@ endif
 
 ifndef AFTERLIFE_GAPPS
     AFTERLIFE_ZIP_TYPE := Vanilla
-
 else
     $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
 

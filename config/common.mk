@@ -1,5 +1,6 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+$(call inherit-product-if-exists, vendor/pixel-framework/config.mk)
 
 # Bootanimation
 $(call inherit-product, vendor/afterlife/config/Afterlife_bootanimation.mk)
@@ -104,6 +105,11 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     product_charger_res_images \
     product_charger_res_images_vendor
+
+# Config
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig \
+    SimpleSettingsConfig
 
 # Disable RescueParty due to high risk of data loss
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -237,7 +243,8 @@ endif
 
 # SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI
+    SystemUI \
+    Launcher3QuickStep
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     dalvik.vm.systemuicompilerfilter=speed
@@ -255,7 +262,8 @@ PRODUCT_PACKAGES += \
     CustomFontPixelLauncherOverlay \
     DocumentsUIOverlay \
     NetworkStackOverlay \
-    PermissionControllerOverlay
+    PermissionControllerOverlay \
+    DeviceConfigOverlay
 
 # Translations
 CUSTOM_LOCALES += \
@@ -267,7 +275,10 @@ CUSTOM_LOCALES += \
 include vendor/afterlife/config/version.mk
 
 # Google apps and services
+ifeq ($(AFTERLIFE_GAPPS),true)
 $(call inherit-product, vendor/gms/products/gms.mk)
+DONT_DEXPREOPT_PREBUILTS := true
+endif
 
 # Fonts
 include vendor/afterlife/config/fonts.mk
