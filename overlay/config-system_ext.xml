@@ -15,5 +15,5 @@
 -->
 
 <config>
-    <overlay package="android.infinity.deviceconfig.overlay" enabled="true" />
+    <overlay package="android.afterlife.deviceconfig.overlay" enabled="true" />
 </config>

@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="android.infinity.deviceconfig.overlay"
+    package="android.afterlife.deviceconfig.overlay"
     android:versionCode="1"
     android:versionName="1.0">
 
